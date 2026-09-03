@@ -1,0 +1,51 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "seeknodeee",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-06-18",
+  // "compatibility_flags": [
+  //   "nodejs_compat"
+  // ],
+  // 环境变量在生产环境中通过 wrangler secret 设置
+  // 本地开发使用 .dev.vars 文件
+  // "vars": {
+  //   "BOT_TOKEN": "YOUR_ACTUAL_BOT_TOKEN_HERE",
+  //   "START_COMMAND": "start"
+  // },
+  // 定时任务配置
+  "triggers": {
+    "crons": [
+      "*/1 * * * *",  // RSS监控任务：每1分钟执行一次
+      "*/2 * * * *",  // 推送任务：每2分钟执行一次
+      "0 * * * *"     // 清理任务：每60分钟执行一次（每小时的0分）
+    ]
+  },
+  // "kv_namespaces": [
+  //   {
+  //     "binding": "MY_KV_NAMESPACE",
+  //     "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  //   }
+  // ],
+  // "r2_buckets": [
+  //   {
+  //     "binding": "MY_BUCKET",  
+  //     "bucket_name": "my-bucket"
+  //   }
+  // ],
+  // D1数据库配置
+  // 生产环境数据库配置在这里
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "southplus-monitor",
+      "database_id": "4933c6fe-9aca-48c7-896a-a918f6bfcd2d"
+    }
+  ],
+  // "ai": {
+  //   "binding": "AI"
+  // },
+  // "observability": {
+  //   "enabled": true,
+  //   "head_sampling_rate": 1
+  // }
+}
